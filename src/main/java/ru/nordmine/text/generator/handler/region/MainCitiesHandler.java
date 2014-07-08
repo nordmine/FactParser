@@ -3,12 +3,25 @@ package ru.nordmine.text.generator.handler.region;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import org.springframework.util.StringUtils;
+import ru.nordmine.text.generator.SentencePool;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 public class MainCitiesHandler extends RegionCaptionHandler {
+
+    private static SentencePool sentences = new SentencePool(
+            new String[]{
+                    "Наиболее крупными городами являются такие города как ",
+                    "К наиболее крупным городам относят ",
+                    "Эти города считаются самыми крупными: ",
+                    "Крупнейшими городами считаются ",
+                    "Основными городами можно считать ",
+                    "Туристам следует постетить такие города как ",
+                    "Более полное впечатление о стране вам помогут составить такие города как "
+            }
+    );
 
     @Override
     public String[] getPossibleCaptions() {
@@ -26,8 +39,9 @@ public class MainCitiesHandler extends RegionCaptionHandler {
         }
         if (!allowedNames.isEmpty()) {
             addSentenceToMap(textParts, GEO,
-                    "Наиболее крупными городами являются такие города как "
-                            + Joiner.on(", ").skipNulls().join(allowedNames));
+                    sentences.next()
+                            + Joiner.on(", ").skipNulls().join(allowedNames)
+            );
         }
     }
 }

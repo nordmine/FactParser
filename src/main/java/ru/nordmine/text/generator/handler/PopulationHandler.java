@@ -1,6 +1,5 @@
 package ru.nordmine.text.generator.handler;
 
-import org.apache.log4j.Logger;
 import ru.nordmine.StringHelper;
 import ru.nordmine.entities.norm.NormalizedCity;
 
@@ -10,8 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 public class PopulationHandler extends ComparisonableCaption {
-
-    private static Logger logger = Logger.getLogger(PopulationHandler.class);
 
     @Override
     public String[] getPossibleCaptions() {
@@ -24,12 +21,12 @@ public class PopulationHandler extends ComparisonableCaption {
         String template;
         List<String> lines = new LinkedList<String>();
         if (value.contains("(")) {
-            template = "По данным статистики на year год население составляет value чел";
+            template = "На year год население составляет value чел";
             String year = value.substring(value.indexOf("(") + 1, value.indexOf(")")).trim();
             String number = StringHelper.getNumberFromString(value.substring(0, value.indexOf("("))).trim();
             template = template.replace("value", number).replace("year", year);
         } else {
-            template = "По данным статистики, население составляет value чел";
+            template = "Население составляет value чел";
             template = template.replace("value", normalizedCity.getPopulation().toString());
         }
         lines.add(template);

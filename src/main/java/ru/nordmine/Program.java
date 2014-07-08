@@ -12,7 +12,7 @@ public class Program {
 
     private static Logger logger = Logger.getLogger(Program.class);
 
-    public static final int MIN_POPULATION = 350000;
+    public static final int MIN_POPULATION = 179000;
     public static final int TAKE_COUNT = 100;
     private ApplicationContext context;
 

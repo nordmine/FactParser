@@ -1,6 +1,7 @@
 package ru.nordmine.services;
 
 import com.google.common.base.CharMatcher;
+import com.google.common.base.Objects;
 import org.apache.log4j.Logger;
 import org.dom4j.*;
 import org.springframework.beans.factory.annotation.Autowired;

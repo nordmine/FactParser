@@ -183,7 +183,7 @@ public class NormalizationServiceImpl implements NormalizationService {
                         if (locationLevel == 1) {
                             normInfobox.setCountry(value);
                         }
-                        if (locationLevel == 2) {
+                        if (locationLevel == 2 && !value.equalsIgnoreCase("панама")) {
                             normInfobox.setSecondLocation(value);
                         }
                         if (locationLevel == 3) {

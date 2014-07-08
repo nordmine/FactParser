@@ -1,6 +1,5 @@
 package ru.nordmine.text.generator.handler;
 
-import org.apache.log4j.Logger;
 import ru.nordmine.StringHelper;
 import ru.nordmine.common.SentenceInfo;
 import ru.nordmine.entities.norm.NormalizedCity;
@@ -11,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 public class RegionHandler extends CaptionHandler {
-
-    private static Logger logger = Logger.getLogger(RegionHandler.class);
 
     private int locationSentenceIndex = 0;
     private int regionLevelCounter = 0;
