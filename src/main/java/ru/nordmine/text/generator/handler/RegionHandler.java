@@ -76,17 +76,8 @@ public class RegionHandler extends CaptionHandler {
         String capitalOf = normalizedCity.getCapitalOf();
         String admCenterOf = normalizedCity.getAdministrativeCenterOf();
 
-        String country = normalizedCity.getCountry();
-        if (country != null) {
-            country = country.trim();
-        }
-
-        String secLocation = normalizedCity.getSecondLocation();
-        if (secLocation != null) {
-            secLocation = secLocation.trim();
-        }
-
         value = StringHelper.readBeforeAnyOf(value.replace(caption, ""), new char[]{'/'}).trim();
+		value = StringHelper.convertCountry(value);
         if (capitalOf != null) {
             capitalOf = capitalOf.trim();
             if (capitalOf.equalsIgnoreCase(value)) {

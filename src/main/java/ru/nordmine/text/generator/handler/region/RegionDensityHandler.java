@@ -23,7 +23,10 @@ public class RegionDensityHandler extends RegionCaptionHandler {
     protected void getSentences(String caption, String value, Map<String, List<String>> textParts, String regionName, Map<String, String> rows) {
         if (value != null) {
             addSentenceToMap(textParts, STAT, sentences.nextWithValue(
-                    StringHelper.getNumberFromString(value)));
+					StringHelper.roundNumber(
+							StringHelper.getNumberFromString(value)
+					))
+			);
         }
     }
 }

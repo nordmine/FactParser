@@ -1,6 +1,5 @@
 package ru.nordmine;
 
-import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.nordmine.services.CrawlerService;
@@ -10,9 +9,7 @@ import ru.nordmine.services.UpdaterService;
 
 public class Program {
 
-    private static Logger logger = Logger.getLogger(Program.class);
-
-    public static final int MIN_POPULATION = 179000;
+    public static final int MIN_POPULATION = 110000;
     public static final int TAKE_COUNT = 100;
     private ApplicationContext context;
 

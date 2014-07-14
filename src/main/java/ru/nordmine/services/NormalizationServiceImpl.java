@@ -181,7 +181,7 @@ public class NormalizationServiceImpl implements NormalizationService {
                     // todo это ведёт к зацикливанию на сайте (Панама ссылается на саму себя)
                     if (value.length() > 0) {
                         if (locationLevel == 1) {
-                            normInfobox.setCountry(value);
+                            normInfobox.setCountry(StringHelper.convertCountry(value));
                         }
                         if (locationLevel == 2 && !value.equalsIgnoreCase("панама")) {
                             normInfobox.setSecondLocation(value);

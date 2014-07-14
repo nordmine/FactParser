@@ -19,7 +19,7 @@ public class RegionAreaHandler extends RegionCaptionHandler {
     @Override
     protected void getSentences(String caption, String value, Map<String, List<String>> textParts, String regionName, Map<String, String> rows) {
         addSentenceToMap(textParts, GEO, regionName + " имеет территорию " +
-                sentences.next() + " " + StringHelper.getNumberFromString(value)
+                sentences.next() + " " + StringHelper.roundNumber(StringHelper.getNumberFromString(value))
                 + " кв. км");
     }
 }

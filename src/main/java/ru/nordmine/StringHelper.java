@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class StringHelper {
 
@@ -89,4 +89,35 @@ public class StringHelper {
         }
         return source;
     }
+
+	public static String roundNumber(String number) {
+		Long longValue;
+		try {
+			longValue = Long.parseLong(number);
+		} catch (NumberFormatException e) {
+			logger.error(e);
+			return number;
+		}
+		if(longValue / 1000000 > 1) {
+			return longValue / 1000000 + " млн.";
+		}
+		if(longValue / 1000 > 1) {
+			return longValue / 1000 + " тыс.";
+		}
+		return longValue.toString();
+	}
+
+	// преобразователь кривых названий
+	private static Map<String, String> countryAliasMap = new HashMap<String, String>();
+
+	public static String convertCountry(String country) {
+		if(countryAliasMap.isEmpty()) {
+			countryAliasMap.put("OCCIDENTALE ARMENIE", "Армения");
+			countryAliasMap.put("Древняя Греция", "Греция");
+		}
+		if(countryAliasMap.containsKey(country)) {
+			return countryAliasMap.get(country);
+		}
+		return country;
+	}
 }

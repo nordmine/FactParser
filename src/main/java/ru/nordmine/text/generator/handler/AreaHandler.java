@@ -24,7 +24,7 @@ public class AreaHandler extends ComparisonableCaption {
         Map<String, List<String>> map = new HashMap<String, List<String>>();
         List<String> lines = new LinkedList<String>();
         String template = "theme имеет площадь " + sentences.next() + " value кв. км";
-        lines.add(template.replace("value", StringHelper.getNumberFromString(value)));
+        lines.add(template.replace("value", StringHelper.roundNumber(StringHelper.getNumberFromString(value))));
         map.put("geo", lines);
         if (normalizedCity != null) {
             String[] stat = compareOtherCitiesByArea(normalizedCity);

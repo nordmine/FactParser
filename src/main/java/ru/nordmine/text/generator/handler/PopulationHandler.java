@@ -24,10 +24,10 @@ public class PopulationHandler extends ComparisonableCaption {
             template = "На year год население составляет value чел";
             String year = value.substring(value.indexOf("(") + 1, value.indexOf(")")).trim();
             String number = StringHelper.getNumberFromString(value.substring(0, value.indexOf("("))).trim();
-            template = template.replace("value", number).replace("year", year);
+            template = template.replace("value", StringHelper.roundNumber(number)).replace("year", year);
         } else {
             template = "Население составляет value чел";
-            template = template.replace("value", normalizedCity.getPopulation().toString());
+            template = template.replace("value", StringHelper.roundNumber(normalizedCity.getPopulation().toString()));
         }
         lines.add(template);
         map.put("geo", lines);

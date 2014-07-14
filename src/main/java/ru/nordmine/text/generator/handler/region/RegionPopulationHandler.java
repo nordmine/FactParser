@@ -24,7 +24,10 @@ public class RegionPopulationHandler extends RegionCaptionHandler {
     protected void getSentences(String caption, String value, Map<String, List<String>> textParts, String regionName, Map<String, String> rows) {
         if (value != null && value.length() > 0) {
             addSentenceToMap(textParts, STAT, sentences.nextWithValue(
-                    StringHelper.getNumberFromString(value)));
+					StringHelper.roundNumber(
+							StringHelper.getNumberFromString(value)
+					))
+			);
         }
     }
 }

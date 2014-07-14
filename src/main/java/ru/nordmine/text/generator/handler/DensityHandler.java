@@ -24,7 +24,7 @@ public class DensityHandler extends ComparisonableCaption {
         Map<String, List<String>> map = new HashMap<String, List<String>>();
         List<String> lines = new LinkedList<String>();
         String template = "theme имеет плотность населения " + sentences.next() + " value чел/кв. км";
-        template = template.replace("value", StringHelper.getNumberFromString(value));
+        template = template.replace("value", StringHelper.roundNumber(StringHelper.getNumberFromString(value)));
         lines.add(template);
         map.put("geo", lines);
 
